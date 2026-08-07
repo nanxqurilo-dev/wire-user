@@ -46,7 +46,7 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="container-shell flex flex-col gap-3 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Aegis Grid Systems. All rights reserved.</p>
+          <p>© {year} Corvex Steel Wires. All rights reserved.</p>
           <p>Precision at the perimeter.</p>
         </div>
       </div>

@@ -76,7 +76,7 @@ export function HomePage() {
           <Reveal delay={0.08}>
             <h2 className="text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-balance md:text-6xl">Security systems work best when every component works as one.</h2>
             <div className="mt-10 grid gap-8 border-t border-ink-950/15 pt-8 md:grid-cols-2">
-              <p className="leading-7 text-slate-700">Aegis Grid approaches the perimeter as an engineered assembly—from material and barrier geometry to support structures, site interfaces, documentation, and dispatch sequencing.</p>
+              <p className="leading-7 text-slate-700">Corvex approaches the perimeter as an engineered assembly—from material and barrier geometry to support structures, site interfaces, documentation, and dispatch sequencing.</p>
               <p className="leading-7 text-slate-700">That gives project teams a clearer path from an operating need to a system that can be specified, procured, installed, and maintained with confidence.</p>
             </div>
           </Reveal>
@@ -85,7 +85,7 @@ export function HomePage() {
 
       <section className="bg-mist-100 py-20 md:py-32">
         <div className="container-shell">
-          <SectionHeading eyebrow="The Aegis standard" title="Confidence is designed into the process." copy="Four principles connect the factory floor to dependable project outcomes." />
+          <SectionHeading eyebrow="The Corvex standard" title="Confidence is designed into the process." copy="Four principles connect the factory floor to dependable project outcomes." />
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-ink-950/10 md:grid-cols-2 lg:grid-cols-4">
             {[
               [ShieldCheck, "Specification first", "System choices begin with operating needs, exposure, and the project standard."],

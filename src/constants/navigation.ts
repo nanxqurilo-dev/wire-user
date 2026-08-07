@@ -59,7 +59,7 @@ export const mainNavigation: NavigationGroup[] = [
   },
   {
     label: "Company", href: "/about",
-    groups: [{ heading: "Aegis Grid", items: [
+    groups: [{ heading: "Corvex", items: [
       { label: "About us", href: "/about" },
       { label: "Certifications", href: "/certifications" },
       { label: "Gallery", href: "/gallery" },

@@ -12,23 +12,23 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "Aegis Grid Systems | Engineered Perimeter Protection",
-    template: "%s | Aegis Grid Systems",
+    default: "Corvex Steel Wires | Engineered Perimeter Protection",
+    template: "%s | Corvex Steel Wires",
   },
   description:
     "Engineered perimeter protection systems for critical infrastructure, industrial facilities, and complex project environments.",
-  applicationName: "Aegis Grid Systems",
+  applicationName: "Corvex Steel Wires",
   keywords: ["perimeter protection", "industrial fencing", "security barriers", "engineered fencing systems"],
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "Aegis Grid Systems",
-    title: "Aegis Grid Systems | Engineered Perimeter Protection",
+    siteName: "Corvex Steel Wires",
+    title: "Corvex Steel Wires | Engineered Perimeter Protection",
     description: "Purpose-built perimeter systems, manufactured with precision and delivered for demanding sites.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aegis Grid Systems | Engineered Perimeter Protection",
+    title: "Corvex Steel Wires | Engineered Perimeter Protection",
     description: "Purpose-built perimeter systems for demanding industrial environments.",
   },
   robots: { index: true, follow: true },
