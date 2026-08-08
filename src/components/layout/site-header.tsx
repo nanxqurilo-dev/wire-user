@@ -1,13 +1,15 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, Clock3, ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { mainNavigation } from "@/constants/navigation";
 import { BrandMark } from "@/components/ui/brand-mark";
+import { SocialMark } from "@/components/ui/social-mark";
+import { contactDetails } from "@/constants/contact";
 
 export function SiteHeader() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -40,6 +42,20 @@ export function SiteHeader() {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50 border-b border-ink-950/10 bg-paper-50/95 backdrop-blur-xl">
+      <div className="hidden border-b border-white/10 bg-ink-950 text-white lg:block">
+        <div className="container-shell flex h-10 items-center justify-between gap-8 text-xs">
+          <div className="flex items-center gap-6 text-steel-300">
+            <a className="flex items-center gap-2 transition-colors hover:text-white" href={contactDetails.phone.href}><Phone aria-hidden="true" className="text-signal-500" size={14} />{contactDetails.phone.label}</a>
+            <a className="flex items-center gap-2 transition-colors hover:text-white" href={contactDetails.email.href}><Mail aria-hidden="true" className="text-signal-500" size={14} />{contactDetails.email.label}</a>
+          </div>
+          <div className="flex items-center gap-5">
+            <span className="flex items-center gap-2 text-steel-300"><Clock3 aria-hidden="true" className="text-signal-500" size={14} />{contactDetails.hours}</span>
+            <nav className="flex items-center gap-1.5" aria-label="Social media">
+              {contactDetails.socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`${social.label}: ${social.handle}`} className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-steel-300 transition hover:border-signal-500 hover:bg-white/5 hover:text-white"><SocialMark platform={social.label} /></a>)}
+            </nav>
+          </div>
+        </div>
+      </div>
       <div className="container-shell flex h-20 items-center justify-between gap-8">
         <BrandMark />
 
