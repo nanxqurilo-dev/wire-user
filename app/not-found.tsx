@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, SearchX } from "lucide-react";
+
+export default function NotFound() {
+  return <section className="relative isolate flex min-h-[72svh] items-center overflow-hidden bg-ink-950 py-24 text-white"><div className="industrial-grid absolute inset-0 opacity-50" aria-hidden="true" /><div className="absolute right-[8%] top-1/2 -translate-y-1/2 font-mono text-[clamp(9rem,25vw,24rem)] font-bold leading-none text-white/[.035]" aria-hidden="true">404</div><div className="container-shell relative"><SearchX aria-hidden="true" className="text-signal-500" size={38} /><p className="eyebrow mt-7 text-signal-500">Error 404</p><h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[.98] tracking-[-.06em] md:text-7xl">This route ends here.<br /><span className="text-steel-300">The project can continue.</span></h1><p className="mt-7 max-w-xl text-lg leading-8 text-steel-300">The page may have moved, the address may be incomplete, or the requested resource is no longer available.</p><div className="mt-9 flex flex-wrap gap-3"><Link className="button button-primary" href="/"><ArrowLeft aria-hidden="true" size={17} /> Return home</Link><Link className="button button-inverse" href="/products">Explore products <ArrowRight aria-hidden="true" size={17} /></Link></div></div></section>;
+}

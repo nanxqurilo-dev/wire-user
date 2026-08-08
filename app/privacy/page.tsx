@@ -1,0 +1,17 @@
+import type { Metadata } from "next";
+import { LegalPage, type LegalSection } from "@/components/legal/legal-page";
+
+export const metadata: Metadata = { title: "Privacy Policy", description: "How Corvex Steel Wires handles personal information submitted through this website.", alternates: { canonical: "/privacy" } };
+
+const sections: LegalSection[] = [
+  { title: "Scope", paragraphs: ["This policy describes how Corvex Steel Wires handles personal information associated with this website, including contact, quotation, recruitment-interest, and technical-enquiry interactions. It does not replace privacy notices contained in contracts, employment records, or third-party services."] },
+  { title: "Information we may collect", paragraphs: ["Information is collected when you choose to provide it or when essential website systems create operational records."], items: ["Identity and business contact details", "Organisation, role, project location, and enquiry content", "Recruitment interests and experience information you choose to provide", "Basic device, security, and service logs where hosting infrastructure enables them"] },
+  { title: "How information is used", paragraphs: ["Information may be used to respond to requests, prepare commercial or technical discussions, coordinate orders, assess legitimate recruitment interest, protect website security, meet legal duties, and improve service quality. Corvex does not sell personal information."] },
+  { title: "Website forms", paragraphs: ["The current website forms validate and format information within your browser and do not transmit it to Corvex until an authorised receiving endpoint is configured. Each form states this limitation clearly. Copying a generated brief places that text on your device clipboard under your control."] },
+  { title: "Lawful handling and sharing", paragraphs: ["Where processing occurs, it is limited to legitimate business purposes, steps requested before a contract, contractual performance, consent where required, and applicable legal obligations. Information may be shared with authorised personnel and service providers only where needed for these purposes, subject to appropriate controls."] },
+  { title: "Retention and security", paragraphs: ["Information is retained only as long as reasonably needed for its purpose, recordkeeping, dispute management, security, and legal obligations. Reasonable organisational and technical safeguards are used, but no internet service can guarantee absolute security."] },
+  { title: "Your choices", paragraphs: ["Subject to applicable law, you may ask about personal information held by Corvex, request correction, object to or restrict certain uses, request deletion where appropriate, or withdraw consent without affecting earlier lawful processing. Identity verification may be required before fulfilling a request."] },
+  { title: "External services and changes", paragraphs: ["Links to external services are governed by their own privacy terms. This policy may be revised when website capabilities, legal requirements, or business processes change. The current revision date appears at the top of this page."] },
+];
+
+export default function PrivacyPage() { return <LegalPage eyebrow="Legal" title="Privacy policy" summary="A plain-language account of what information may be handled, why it is needed, and the choices available to you." updated="8 August 2026" sections={sections} />; }

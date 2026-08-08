@@ -80,6 +80,6 @@ export const footerNavigation = [
   ] },
   { heading: "Support", items: [
     { label: "Contact", href: "/contact" }, { label: "Request a quote", href: "/request-a-quote" },
-    { label: "FAQ", href: "/faq" }, { label: "Privacy", href: "/privacy" },
+    { label: "FAQ", href: "/faq" }, { label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" },
   ] },
 ] as const;
