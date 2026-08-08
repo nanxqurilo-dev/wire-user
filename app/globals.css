@@ -60,6 +60,18 @@ button:not(:disabled), a[href], select { cursor: pointer; }
 .button:disabled { cursor: not-allowed; transform: none; box-shadow: none; }
 .button-primary { background: #bd3d0c; color: white; }
 .button-primary:hover { background: #9f3007; }
+.button-light { border-color: #fff; background: #fff; color: #08111c; }
+.button-light:hover { border-color: #eef2f4; background: #eef2f4; color: #08111c; }
+.bg-signal-600 .button.bg-white {
+  border-color: #fff;
+  background: #fff;
+  color: #08111c !important;
+}
+.bg-signal-600 .button.bg-white:hover {
+  border-color: #eef2f4;
+  background: #eef2f4;
+  color: #08111c !important;
+}
 .button-inverse { border-color: rgb(255 255 255 / 0.22); background: rgb(255 255 255 / 0.04); color: white; }
 .button-inverse:hover { border-color: rgb(255 255 255 / 0.5); background: rgb(255 255 255 / 0.09); }
 .skip-link {
