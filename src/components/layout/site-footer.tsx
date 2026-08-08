@@ -32,7 +32,7 @@ export function SiteFooter() {
           </p>
           <div className="mt-7 space-y-3 text-sm text-steel-300">
             <a className="flex items-center gap-3 hover:text-white" href={contactDetails.phone.href}><Phone aria-hidden="true" className="text-signal-500" size={16} />{contactDetails.phone.label}</a>
-            <a className="flex items-center gap-3 hover:text-white" href={contactDetails.email.href}><Mail aria-hidden="true" className="text-signal-500" size={16} />{contactDetails.email.label}</a>
+            <a className="flex items-start gap-3 break-all hover:text-white" href={contactDetails.email.href}><Mail aria-hidden="true" className="mt-0.5 shrink-0 text-signal-500" size={16} />{contactDetails.email.label}</a>
             <p className="flex max-w-sm items-start gap-3 leading-6"><MapPin aria-hidden="true" className="mt-1 shrink-0 text-signal-500" size={16} />{contactDetails.address}</p>
           </div>
           <div className="mt-6 flex gap-2">
@@ -42,7 +42,7 @@ export function SiteFooter() {
             Contact our team <ArrowRight aria-hidden="true" size={17} />
           </Link>
         </div>
-        <nav className="grid grid-cols-2 gap-10 sm:grid-cols-3" aria-label="Footer navigation">
+        <nav className="grid grid-cols-1 gap-10 min-[400px]:grid-cols-2 sm:grid-cols-3" aria-label="Footer navigation">
           {footerNavigation.map((group) => (
             <div key={group.heading}>
               <p className="eyebrow text-slate-500">{group.heading}</p>

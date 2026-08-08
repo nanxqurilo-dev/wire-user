@@ -42,7 +42,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <div className="hidden border-b border-white/10 bg-ink-950 text-white lg:block">
+      <div className="hidden border-b border-white/10 bg-ink-950 text-white xl:block">
         <div className="container-shell flex h-10 items-center justify-between gap-8 text-xs">
           <div className="flex items-center gap-6 text-steel-300">
             <a className="flex items-center gap-2 transition-colors hover:text-white" href={contactDetails.phone.href}><Phone aria-hidden="true" className="text-signal-500" size={14} />{contactDetails.phone.label}</a>
@@ -57,10 +57,10 @@ export function SiteHeader() {
         </div>
       </div>
       <header ref={headerRef} className="sticky top-0 z-50 border-b border-ink-950/10 bg-paper-50/95 backdrop-blur-xl">
-      <div className="container-shell flex h-20 items-center justify-between gap-8">
+      <div className="site-header-row container-shell flex h-20 items-center justify-between gap-3 sm:gap-6 xl:gap-8">
         <BrandMark />
 
-        <nav className="hidden h-full items-center lg:flex" aria-label="Primary navigation">
+        <nav className="hidden h-full items-center xl:flex" aria-label="Primary navigation">
           {mainNavigation.map((item) => {
             const hasMenu = Boolean(item.groups?.length);
             const isOpen = openMenu === item.label;
@@ -85,13 +85,13 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Link className="button button-primary hidden sm:inline-flex" href="/request-a-quote">
+        <div className="flex shrink-0 items-center gap-2">
+          <Link className="header-quote button button-primary" href="/request-a-quote">
             Request a quote <ArrowRight aria-hidden="true" size={17} />
           </Link>
           <button
             type="button"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-ink-950/15 text-ink-950 lg:hidden"
+            className="mobile-menu-trigger h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-ink-950/15 text-ink-950"
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-navigation"
@@ -123,7 +123,7 @@ function MegaMenu({ itemLabel, onNavigate }: { itemLabel: string; onNavigate: ()
   return (
     <motion.div
       id={`menu-${item.label.toLowerCase()}`}
-      className="absolute inset-x-0 top-full hidden border-y border-ink-950/10 bg-paper-50 shadow-[0_24px_80px_rgba(8,17,28,0.12)] lg:block"
+      className="absolute inset-x-0 top-full hidden border-y border-ink-950/10 bg-paper-50 shadow-[0_24px_80px_rgba(8,17,28,0.12)] xl:block"
       initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
     >
       <div className={`container-shell grid gap-12 py-12 ${item.featured ? "grid-cols-[0.8fr_1.4fr]" : "grid-cols-1"}`}>
@@ -164,19 +164,19 @@ function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
   return (
     <motion.nav
       id="mobile-navigation" aria-label="Mobile navigation"
-      className="fixed inset-x-0 bottom-0 top-20 overflow-y-auto bg-paper-50 px-5 pb-10 pt-4 lg:hidden"
+      className="mobile-navigation-panel absolute inset-x-0 top-full z-50 overflow-y-auto overscroll-contain bg-paper-50 px-4 pb-10 pt-2 shadow-[0_24px_60px_rgba(8,17,28,0.16)] sm:px-5 sm:pt-4 xl:hidden"
       initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 24 }}
     >
       <ul className="divide-y divide-ink-950/10">
         {mainNavigation.map((item) => (
-          <li key={item.label} className="py-5">
-            <Link onClick={onNavigate} className="flex items-center justify-between text-xl font-semibold" href={item.href}>
+          <li key={item.label} className="py-4 sm:py-5">
+            <Link onClick={onNavigate} className="flex min-h-11 items-center justify-between gap-4 text-lg font-semibold sm:text-xl" href={item.href}>
               {item.label}<ArrowRight aria-hidden="true" size={19} />
             </Link>
             {item.groups && (
               <div className="mt-4 grid gap-x-5 gap-y-2 sm:grid-cols-2">
                 {item.groups.flatMap((group) => group.items).map((link) => (
-                  <Link onClick={onNavigate} key={link.href} className="py-2 text-sm text-slate-700 hover:text-signal-600" href={link.href}>{link.label}</Link>
+                  <Link onClick={onNavigate} key={link.href} className="flex min-h-10 items-center py-1 text-sm text-slate-700 hover:text-signal-600" href={link.href}>{link.label}</Link>
                 ))}
               </div>
             )}

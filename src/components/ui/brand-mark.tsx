@@ -14,7 +14,7 @@ export function BrandMark({ inverse = false }: { inverse?: boolean }) {
         width={746}
         height={309}
         priority
-        className="h-auto w-[8.7rem] sm:w-[10.4rem]"
+        className="brand-logo h-auto w-[8.7rem] sm:w-[10.4rem]"
         sizes="(min-width: 640px) 166px, 140px"
       />
     </Link>

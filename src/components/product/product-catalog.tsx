@@ -56,11 +56,11 @@ export function ProductCatalog() {
           <input id="product-search" value={searchValue} onChange={(event) => setSearchValue(event.target.value)} className="h-13 w-full rounded-xl border border-ink-950/15 bg-white pl-12 pr-24 text-sm outline-none transition focus:border-signal-500" placeholder="Search product or system" />
           <button className="absolute right-2 top-2 rounded-lg bg-ink-950 px-4 py-2 text-xs font-semibold text-white" type="submit">Search</button>
         </form>
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-sm text-slate-500"><strong className="text-ink-950">{filtered.length}</strong> configurations</p>
           <button type="button" className="button border border-ink-950/15 bg-white lg:hidden" onClick={() => setMobileFilters(true)}><Filter aria-hidden="true" size={17} /> Filters {activeFilters > 0 && <span className="rounded-full bg-signal-600 px-2 py-0.5 text-[0.65rem] text-white">{activeFilters}</span>}</button>
           <label className="sr-only" htmlFor="product-sort">Sort products</label>
-          <select id="product-sort" className="h-13 rounded-xl border border-ink-950/15 bg-white px-4 text-sm font-semibold" value={sort} onChange={(event) => setParam("sort", event.target.value)}>
+          <select id="product-sort" className="h-13 min-w-0 flex-1 rounded-xl border border-ink-950/15 bg-white px-3 text-sm font-semibold sm:flex-none sm:px-4" value={sort} onChange={(event) => setParam("sort", event.target.value)}>
             <option value="featured">Featured</option><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="category">Category</option>
           </select>
         </div>
@@ -75,7 +75,7 @@ export function ProductCatalog() {
           ) : (
             <div className="rounded-2xl border border-ink-950/10 bg-white px-6 py-20 text-center"><SlidersHorizontal aria-hidden="true" className="mx-auto text-slate-500" size={32} /><h2 className="mt-5 text-2xl font-semibold">No matching systems</h2><p className="mt-3 text-slate-700">Try a broader search or clear the current filters.</p><button className="button button-primary mt-7" type="button" onClick={() => { setSearchValue(""); router.replace(pathname); }}>Clear filters</button></div>
           )}
-          {totalPages > 1 && <nav className="mt-10 flex items-center justify-between border-t border-ink-950/15 pt-7" aria-label="Product pagination"><button disabled={page === 1} onClick={() => setParam("page", String(page - 1))} className="button border border-ink-950/15 bg-white disabled:cursor-not-allowed disabled:opacity-40" type="button"><ChevronLeft aria-hidden="true" size={17} /> Previous</button><span className="font-mono text-xs text-slate-500">Page {page} / {totalPages}</span><button disabled={page === totalPages} onClick={() => setParam("page", String(page + 1))} className="button border border-ink-950/15 bg-white disabled:cursor-not-allowed disabled:opacity-40" type="button">Next <ChevronRight aria-hidden="true" size={17} /></button></nav>}
+          {totalPages > 1 && <nav className="mt-10 grid grid-cols-[1fr_auto_1fr] items-center gap-2 border-t border-ink-950/15 pt-7" aria-label="Product pagination"><button disabled={page === 1} onClick={() => setParam("page", String(page - 1))} className="button justify-self-start border border-ink-950/15 bg-white px-3 disabled:cursor-not-allowed disabled:opacity-40 sm:px-5" type="button"><ChevronLeft aria-hidden="true" size={17} /> <span className="hidden sm:inline">Previous</span></button><span className="font-mono text-[.65rem] text-slate-500 sm:text-xs">Page {page} / {totalPages}</span><button disabled={page === totalPages} onClick={() => setParam("page", String(page + 1))} className="button justify-self-end border border-ink-950/15 bg-white px-3 disabled:cursor-not-allowed disabled:opacity-40 sm:px-5" type="button"><span className="hidden sm:inline">Next</span> <ChevronRight aria-hidden="true" size={17} /></button></nav>}
         </div>
       </div>
 

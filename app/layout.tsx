@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Manrope } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     description: "Purpose-built perimeter systems for demanding industrial environments.",
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
