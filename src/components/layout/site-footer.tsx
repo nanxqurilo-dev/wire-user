@@ -1,8 +1,10 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
 import { footerNavigation } from "@/constants/navigation";
 import { BrandMark } from "@/components/ui/brand-mark";
+import { contactDetails } from "@/constants/contact";
+import { SocialMark } from "@/components/ui/social-mark";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -28,6 +30,14 @@ export function SiteFooter() {
           <p className="mt-6 max-w-sm text-sm leading-6 text-steel-300">
             Engineered barrier and fencing systems for demanding industrial and infrastructure environments.
           </p>
+          <div className="mt-7 space-y-3 text-sm text-steel-300">
+            <a className="flex items-center gap-3 hover:text-white" href={contactDetails.phone.href}><Phone aria-hidden="true" className="text-signal-500" size={16} />{contactDetails.phone.label}</a>
+            <a className="flex items-center gap-3 hover:text-white" href={contactDetails.email.href}><Mail aria-hidden="true" className="text-signal-500" size={16} />{contactDetails.email.label}</a>
+            <p className="flex max-w-sm items-start gap-3 leading-6"><MapPin aria-hidden="true" className="mt-1 shrink-0 text-signal-500" size={16} />{contactDetails.address}</p>
+          </div>
+          <div className="mt-6 flex gap-2">
+            {contactDetails.socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`${social.label}: ${social.handle}`} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-steel-300 transition hover:-translate-y-0.5 hover:border-signal-500 hover:text-white"><SocialMark platform={social.label}/></a>)}
+          </div>
           <Link className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-signal-500 hover:text-signal-200" href="/contact">
             Contact our team <ArrowRight aria-hidden="true" size={17} />
           </Link>
