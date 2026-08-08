@@ -41,7 +41,7 @@ export function SiteHeader() {
   }, [mobileOpen]);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 border-b border-ink-950/10 bg-paper-50/95 backdrop-blur-xl">
+    <>
       <div className="hidden border-b border-white/10 bg-ink-950 text-white lg:block">
         <div className="container-shell flex h-10 items-center justify-between gap-8 text-xs">
           <div className="flex items-center gap-6 text-steel-300">
@@ -56,6 +56,7 @@ export function SiteHeader() {
           </div>
         </div>
       </div>
+      <header ref={headerRef} className="sticky top-0 z-50 border-b border-ink-950/10 bg-paper-50/95 backdrop-blur-xl">
       <div className="container-shell flex h-20 items-center justify-between gap-8">
         <BrandMark />
 
@@ -110,7 +111,8 @@ export function SiteHeader() {
       <AnimatePresence>
         {mobileOpen && <MobileNavigation onNavigate={() => setMobileOpen(false)} />}
       </AnimatePresence>
-    </header>
+      </header>
+    </>
   );
 }
 

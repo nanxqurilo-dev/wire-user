@@ -19,7 +19,7 @@
 }
 
 :root {
-  --header-height: 7.5rem;
+  --header-height: 5rem;
   --page-gutter: clamp(1.25rem, 4vw, 4rem);
   --container: 90rem;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -138,10 +138,6 @@ section.bg-signal-600 {
     animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
     scroll-behavior: auto !important; transition-duration: 0.01ms !important;
   }
-}
-
-@media (max-width: 63.999rem) {
-  :root { --header-height: 5rem; }
 }
 
 @keyframes marquee {
