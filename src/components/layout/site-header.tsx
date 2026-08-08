@@ -161,6 +161,8 @@ function MegaMenu({ itemLabel, onNavigate }: { itemLabel: string; onNavigate: ()
 }
 
 function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
+  const [expandedItem, setExpandedItem] = useState<string | null>(null);
+
   return (
     <motion.nav
       id="mobile-navigation" aria-label="Mobile navigation"
@@ -168,20 +170,51 @@ function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
       initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 24 }}
     >
       <ul className="divide-y divide-ink-950/10">
-        {mainNavigation.map((item) => (
-          <li key={item.label} className="py-4 sm:py-5">
-            <Link onClick={onNavigate} className="flex min-h-11 items-center justify-between gap-4 text-lg font-semibold sm:text-xl" href={item.href}>
-              {item.label}<ArrowRight aria-hidden="true" size={19} />
-            </Link>
-            {item.groups && (
-              <div className="mt-4 grid gap-x-5 gap-y-2 sm:grid-cols-2">
-                {item.groups.flatMap((group) => group.items).map((link) => (
-                  <Link onClick={onNavigate} key={link.href} className="flex min-h-10 items-center py-1 text-sm text-slate-700 hover:text-signal-600" href={link.href}>{link.label}</Link>
-                ))}
-              </div>
-            )}
-          </li>
-        ))}
+        {mainNavigation.map((item) => {
+          const hasChildren = Boolean(item.groups?.length);
+          const expanded = expandedItem === item.label;
+
+          return (
+            <li key={item.label} className="py-4 sm:py-5">
+              {hasChildren ? (
+                <button
+                  type="button"
+                  className="flex min-h-11 w-full items-center justify-between gap-4 text-left text-lg font-semibold sm:text-xl"
+                  aria-expanded={expanded}
+                  aria-controls={`mobile-section-${item.label.toLowerCase().replaceAll(" ", "-")}`}
+                  onClick={() => setExpandedItem(expanded ? null : item.label)}
+                >
+                  {item.label}
+                  <ChevronDown aria-hidden="true" className={`shrink-0 transition-transform ${expanded ? "rotate-180" : ""}`} size={20} />
+                </button>
+              ) : (
+                <Link onClick={onNavigate} className="flex min-h-11 items-center justify-between gap-4 text-lg font-semibold sm:text-xl" href={item.href}>
+                  {item.label}<ArrowRight aria-hidden="true" className="shrink-0" size={19} />
+                </Link>
+              )}
+
+              <AnimatePresence initial={false}>
+                {hasChildren && expanded && (
+                  <motion.div
+                    id={`mobile-section-${item.label.toLowerCase().replaceAll(" ", "-")}`}
+                    className="overflow-hidden"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.24 }}
+                  >
+                    <div className="mt-3 grid gap-x-5 gap-y-1 border-l border-ink-950/10 pl-4 sm:grid-cols-2">
+                      <Link onClick={onNavigate} className="flex min-h-10 items-center py-1 text-sm font-semibold text-signal-600" href={item.href}>View all {item.label.toLowerCase()}</Link>
+                      {item.groups!.flatMap((group) => group.items).map((link) => (
+                        <Link onClick={onNavigate} key={link.href} className="flex min-h-10 items-center py-1 text-sm text-slate-700 hover:text-signal-600" href={link.href}>{link.label}</Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
+          );
+        })}
       </ul>
       <Link onClick={onNavigate} className="button button-primary mt-8 w-full" href="/request-a-quote">
         Request a quote <ArrowRight aria-hidden="true" size={18} />
