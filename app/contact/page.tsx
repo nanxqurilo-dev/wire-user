@@ -35,7 +35,7 @@ export default function ContactPage() {
             {cards.map((card) => <div key={card.title} className="flex gap-5 py-6"><card.icon aria-hidden="true" className="shrink-0 text-signal-600" size={24} /><div><h3 className="font-semibold">{card.title}</h3><p className="mt-2 text-sm leading-6 text-slate-700">{card.copy}</p></div></div>)}
           </div>
           <div className="mt-8 rounded-2xl bg-mist-100 p-6">
-            <span className="inline-flex rounded-full bg-signal-200 px-3 py-1 font-mono text-[.65rem] font-semibold uppercase tracking-[.12em] text-ink-950">Temporary details</span>
+            <span className="inline-flex rounded-full bg-signal-200 px-3 py-1 font-mono text-[.65rem] font-semibold uppercase tracking-[.12em] text-ink-950">Contact details</span>
             <div className="mt-5 space-y-4">
               <a className="flex items-start gap-3 text-sm font-semibold hover:text-signal-600" href={contactDetails.phone.href}><Phone aria-hidden="true" className="mt-0.5 shrink-0 text-signal-600" size={19}/>{contactDetails.phone.label}</a>
               <a className="flex items-start gap-3 break-all text-sm font-semibold hover:text-signal-600" href={contactDetails.email.href}><Mail aria-hidden="true" className="mt-0.5 shrink-0 text-signal-600" size={19}/>{contactDetails.email.label}</a>
