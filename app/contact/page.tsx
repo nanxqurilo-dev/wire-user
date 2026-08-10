@@ -42,7 +42,7 @@ export default function ContactPage() {
               <p className="flex items-start gap-3 text-sm leading-6 text-slate-700"><MapPin aria-hidden="true" className="mt-0.5 shrink-0 text-signal-600" size={19}/>{contactDetails.address}</p>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">{contactDetails.socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`${social.label}: ${social.handle}`} className="flex h-11 w-11 items-center justify-center rounded-full border border-ink-950/10 bg-white text-slate-700 transition hover:-translate-y-0.5 hover:border-signal-500 hover:text-signal-600"><SocialMark platform={social.label}/></a>)}</div>
-            <p className="mt-5 text-xs leading-5 text-slate-500">Replace these temporary values in <code>src/constants/contact.ts</code> before launch.</p>
+            <p className="mt-5 text-xs leading-5 text-slate-500"> <code></code></p>
           </div>
         </div>
         <BriefForm mode="contact" />
@@ -71,7 +71,7 @@ export default function ContactPage() {
           <a className="absolute bottom-4 right-4 inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/50 bg-white/95 px-4 text-sm font-semibold text-ink-950 shadow-lg backdrop-blur transition hover:-translate-y-0.5 hover:bg-white sm:bottom-5 sm:right-5" href={directionsUrl} target="_blank" rel="noreferrer">Open in Maps <ArrowUpRight aria-hidden="true" size={17}/></a>
         </div>
       </div>
-      <p className="container-shell mt-4 text-xs leading-5 text-slate-500">The map currently uses the temporary office address and will update automatically when the confirmed details are added.</p>
+      {/* <p className="container-shell mt-4 text-xs leading-5 text-slate-500">The map currently uses the temporary office address and will update automatically when the confirmed details are added.</p> */}
     </section>
   </>;
 }
