@@ -1,14 +1,14 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Clock3, ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
+import { ArrowRight, Clock3, ChevronDown, Mail, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { mainNavigation } from "@/constants/navigation";
 import { BrandMark } from "@/components/ui/brand-mark";
-import { SocialMark } from "@/components/ui/social-mark";
+import { SocialMark, WhatsAppMark } from "@/components/ui/social-mark";
 import { contactDetails } from "@/constants/contact";
 
 export function SiteHeader() {
@@ -45,7 +45,7 @@ export function SiteHeader() {
       <div className="hidden border-b border-white/10 bg-ink-950 text-white xl:block">
         <div className="container-shell flex h-10 items-center justify-between gap-8 text-xs">
           <div className="flex items-center gap-6 text-steel-300">
-            <a className="flex items-center gap-2 transition-colors hover:text-white" href={contactDetails.phone.href}><Phone aria-hidden="true" className="text-signal-500" size={14} />{contactDetails.phone.label}</a>
+            <a className="flex items-center gap-2 transition-colors hover:text-white" href="https://wa.me/919315726454" target="_blank" rel="noreferrer"><WhatsAppMark />{contactDetails.phone.label}</a>
             <a className="flex items-center gap-2 transition-colors hover:text-white" href={contactDetails.email.href}><Mail aria-hidden="true" className="text-signal-500" size={14} />{contactDetails.email.label}</a>
           </div>
           <div className="flex items-center gap-5">

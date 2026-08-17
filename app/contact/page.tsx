@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, Clock3, FileCheck2, Mail, MapPin, MessagesSquare, Navigation, Phone } from "lucide-react";
+import { ArrowUpRight, Clock3, FileCheck2, Mail, MapPin, MessagesSquare, Navigation } from "lucide-react";
 
 import { BriefForm } from "@/components/forms/brief-form";
 import { PageHero } from "@/components/ui/page-hero";
-import { SocialMark } from "@/components/ui/social-mark";
+import { SocialMark, WhatsAppMark } from "@/components/ui/social-mark";
 import { contactDetails } from "@/constants/contact";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function ContactPage() {
           <div className="mt-8 rounded-2xl bg-mist-100 p-6">
             <span className="inline-flex rounded-full bg-signal-200 px-3 py-1 font-mono text-[.65rem] font-semibold uppercase tracking-[.12em] text-ink-950">Contact details</span>
             <div className="mt-5 space-y-4">
-              <a className="flex items-start gap-3 text-sm font-semibold hover:text-signal-600" href={contactDetails.phone.href}><Phone aria-hidden="true" className="mt-0.5 shrink-0 text-signal-600" size={19}/>{contactDetails.phone.label}</a>
+              <a className="flex items-start gap-3 text-sm font-semibold hover:text-signal-600" href="https://wa.me/919315726454" target="_blank" rel="noreferrer"><WhatsAppMark />{contactDetails.phone.label}</a>
               <a className="flex items-start gap-3 break-all text-sm font-semibold hover:text-signal-600" href={contactDetails.email.href}><Mail aria-hidden="true" className="mt-0.5 shrink-0 text-signal-600" size={19}/>{contactDetails.email.label}</a>
               <p className="flex items-start gap-3 text-sm leading-6 text-slate-700"><MapPin aria-hidden="true" className="mt-0.5 shrink-0 text-signal-600" size={19}/>{contactDetails.address}</p>
             </div>

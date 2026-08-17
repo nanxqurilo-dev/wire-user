@@ -1,10 +1,10 @@
-import { ArrowRight, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
 import { footerNavigation } from "@/constants/navigation";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { contactDetails } from "@/constants/contact";
-import { SocialMark } from "@/components/ui/social-mark";
+import { SocialMark, WhatsAppMark } from "@/components/ui/social-mark";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -31,7 +31,7 @@ export function SiteFooter() {
             Engineered barrier and fencing systems for demanding industrial and infrastructure environments.
           </p>
           <div className="mt-7 space-y-3 text-sm text-steel-300">
-            <a className="flex items-center gap-3 hover:text-white" href={contactDetails.phone.href}><Phone aria-hidden="true" className="text-signal-500" size={16} />{contactDetails.phone.label}</a>
+            <a className="flex items-center gap-3 hover:text-white" href="https://wa.me/919315726454" target="_blank" rel="noreferrer"><WhatsAppMark />{contactDetails.phone.label}</a>
             <a className="flex items-start gap-3 break-all hover:text-white" href={contactDetails.email.href}><Mail aria-hidden="true" className="mt-0.5 shrink-0 text-signal-500" size={16} />{contactDetails.email.label}</a>
             <p className="flex max-w-sm items-start gap-3 leading-6"><MapPin aria-hidden="true" className="mt-1 shrink-0 text-signal-500" size={16} />{contactDetails.address}</p>
           </div>
