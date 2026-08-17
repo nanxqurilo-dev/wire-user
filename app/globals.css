@@ -72,7 +72,7 @@ button:not(:disabled), a[href], select { cursor: pointer; }
 .mobile-navigation-panel {
   width: 100%;
   max-width: 100%;
-  height: calc(100dvh - var(--header-height));
+  height: 100dvh;
 }
 .text-display { font-size: clamp(3.25rem, 7vw, 7.5rem); line-height: 0.95; }
 .eyebrow {

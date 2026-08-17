@@ -108,10 +108,10 @@ export function SiteHeader() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
-        {mobileOpen && <MobileNavigation onNavigate={() => setMobileOpen(false)} />}
-      </AnimatePresence>
       </header>
+      <AnimatePresence>
+        {mobileOpen && <MobileNavigation onNavigate={() => setMobileOpen(false)} onClose={() => setMobileOpen(false)} />}
+      </AnimatePresence>
     </>
   );
 }
@@ -160,16 +160,33 @@ function MegaMenu({ itemLabel, onNavigate }: { itemLabel: string; onNavigate: ()
   );
 }
 
-function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
+function MobileNavigation({ onNavigate, onClose }: { onNavigate: () => void; onClose: () => void }) {
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const panelRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    panelRef.current?.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
 
   return (
     <motion.nav
+      ref={panelRef}
       id="mobile-navigation" aria-label="Mobile navigation"
-      className="mobile-navigation-panel absolute inset-x-0 top-full z-50 overflow-y-auto overscroll-contain bg-paper-50 px-4 pb-10 pt-2 shadow-[0_24px_60px_rgba(8,17,28,0.16)] sm:px-5 sm:pt-4 xl:hidden"
+      className="mobile-navigation-panel fixed inset-x-0 top-0 z-[60] overflow-y-auto overscroll-contain bg-paper-50 shadow-[0_24px_60px_rgba(8,17,28,0.16)] xl:hidden"
       initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 24 }}
     >
-      <ul className="divide-y divide-ink-950/10">
+      <div className="flex h-24 items-center justify-between gap-4 border-b border-ink-950/10 px-4 sm:px-5">
+        <BrandMark />
+        <button
+          type="button"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-ink-950/15 text-ink-950"
+          aria-label="Close navigation"
+          onClick={onClose}
+        >
+          <X aria-hidden="true" size={22} />
+        </button>
+      </div>
+      <ul className="divide-y divide-ink-950/10 px-4 pt-4 sm:px-5">
         {mainNavigation.map((item) => {
           const hasChildren = Boolean(item.groups?.length);
           const expanded = expandedItem === item.label;
@@ -216,9 +233,11 @@ function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
           );
         })}
       </ul>
+      <div className="px-4 pb-10 pt-2 sm:px-5">
       <Link onClick={onNavigate} className="button button-primary mt-8 w-full" href="/request-a-quote">
         Request a quote <ArrowRight aria-hidden="true" size={18} />
       </Link>
+      </div>
     </motion.nav>
   );
 }
