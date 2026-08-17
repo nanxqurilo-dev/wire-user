@@ -57,7 +57,7 @@ export function FaqBrowser() {
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            className="form-input h-14 pl-14 pr-12"
+            className="form-input form-input--with-icons h-14"
             placeholder="Search products, delivery, inspections…"
             aria-describedby={headingId}
           />

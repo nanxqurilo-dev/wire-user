@@ -147,6 +147,7 @@ footer.bg-ink-950 {
   background: white; padding-inline: 0.9rem; color: #0a1722; font-size: 0.875rem;
   transition: border-color 180ms ease, box-shadow 180ms ease;
 }
+.form-input--with-icons { padding-left: 3.5rem; padding-right: 3rem; }
 .form-input::placeholder { color: #66788a; opacity: 1; }
 .form-input:hover { border-color: rgb(8 17 28 / 0.32); }
 .form-input:focus { border-color: #a6462b; box-shadow: 0 0 0 3px rgb(166 70 43 / 0.14); outline: none; }
