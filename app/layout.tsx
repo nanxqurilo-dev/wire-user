@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Manrope } from "next/font/google";
+import Script from "next/script";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -32,6 +33,9 @@ export const metadata: Metadata = {
     description: "Purpose-built perimeter systems for demanding industrial environments.",
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "-t8a68WSITI-2FPZN2xTYU6p7v0ERWC12q41i4UUAAQ",
+  },
 };
 
 export const viewport: Viewport = {
@@ -50,6 +54,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter />
         </Providers>
       </body>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-NW0KRM3V6E" strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NW0KRM3V6E');`}
+      </Script>
     </html>
   );
 }
