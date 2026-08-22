@@ -103,7 +103,7 @@ button:not(:disabled), a[href], select { cursor: pointer; }
     background: #edf1f2;
     color: #0a1722 !important;
   }
-  .button-inverse { border-color: rgb(255 255 255 / 0.22); background: rgb(255 255 255 / 0.04); color: white; }
+  .button-inverse { border-color: rgba(249, 245, 245, 0.22); background: rgb(255 255 255 / 0.04); color: white; border: 2px solid rgba(255, 255, 255, 0.5); }
   .button-inverse:hover { border-color: rgb(255 255 255 / 0.5); background: rgb(255 255 255 / 0.09); }
 }
 .skip-link {
